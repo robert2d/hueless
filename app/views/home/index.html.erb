@@ -6,12 +6,36 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="container-fluid">
 
   <div class="row">
+
+    <h1>Lighting <%= Huey::Bridge.new.name %></h1>
+    <p class="lead">Click on an image to sample its colors, or control the lights manually.</p>
+
+    <div class="col-lg-2 col-sm-3 col-12">
+      <img src="assets/milford_33.jpg" style="width: 100%; height: auto;" class="target-image">
+    </div>
+    <div class="col-lg-2 col-sm-3 col-12">
+      <img src="assets/sunset.jpg" style="width: 100%; height: auto;" class="target-image">
+    </div>
+    <div class="col-lg-2 col-sm-3 col-12">
+      <img src="assets/desert.jpg" style="width: 100%; height: auto;" class="target-image">
+    </div>
+    <div class="col-lg-2 col-sm-3 col-12">
+      <img src="assets/iceland.jpg" style="width: 100%; height: auto;" class="target-image">
+    </div>
+    <div class="col-lg-2 col-sm-3 col-12">
+      <img src="assets/flowers.jpg" style="width: 100%; height: auto;" class="target-image">
+    </div>
+    <div class="col-lg-2 col-sm-3 col-12">
+      <img src="assets/purple.jpg" style="width: 100%; height: auto;" class="target-image">
+    </div>
+  </div>
+
+  <div class="row">
+
     <div class="col-12">
-      <h1>Lighting <%= Huey::Bridge.new.name %></h1>
-      <p class="lead">Controls the lights below</p>
       <div class="row">
 
         <div class="col-lg-4 col-sm-4 col-12">
@@ -22,7 +46,7 @@
               <br />
               <input style="width: 100%; height: 35px;" type='text' name='color' value="<%= Huey::Bulb.all.first.rgb %>" class="color" data-id="all" />
             </div>
-            <div style="width: 100%;">
+            <div style="width: 100%; margin: 20px 0;">
               <label>Brightness</label>
               <br />
               <input type="text" style="width: 83%;" class="brightness" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="<%= Huey::Bulb.all.first.bri %>" data-id="all" data-slider-tooltip="hide" />
@@ -34,19 +58,19 @@
         <% Huey::Bulb.all.each do |bulb| %>
           <% if bulb.reachable %>
             <div class="col-lg-4 col-sm-4 col-12">
-              <div class="well">
+              <div class="well bulb">
                 <h3><%= bulb.name %> <input type="checkbox" <%= 'checked' if bulb.on %> data-id="<%= bulb.id %>" data-toggle="toggle"></h3>
                 <div class="form-group">
                   <label>Colour</label>
                   <br />
                   <input style="width: 100%; height: 35px;" type='text' name='color' value="<%= bulb.rgb %>" class="color" data-id="<%= bulb.id %>" />
                 </div>
-                <div style="width: 100%;">
+                <div style="width: 100%; margin: 20px 0;">
                   <label>Brightness</label>
                   <br />
-                  <input type="text" style="width: 83%;" class="brightness" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="<%= bulb.bri %>" data-id="<%= bulb.id %>" data-slider-tooltip="hide" />
+                  <input type="text" style="width: 80%;" class="brightness" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="<%= bulb.bri %>" data-id="<%= bulb.id %>" data-slider-tooltip="hide" />
                 </div>
-                <a class="btn btn-default find" data-id="<%= bulb.id %>" href="#" role="button">Find</a>
+                <a class="btn btn-default find" data-id="<%= bulb.id %>" href="#" role="button">Blink</a>
               </div>
             </div>
           <% end %>
