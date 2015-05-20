@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get :color, to: "home#color", format: :json
   get :brightness, to: "home#brightness", format: :json
   get :alert, to: "home#alert", format: :json
+  get :xy, to: "home#xy", format: :json
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -18,4 +18,6 @@
 //= require bootstrap-switch
 //= require jquery.minicolors
 //= require bootstrap-slider
+//= require webcam
+//= require color
 //= require_tree .

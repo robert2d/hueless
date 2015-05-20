@@ -20,6 +20,13 @@ class HomeController < ApplicationController
     render json: { color: params[:color] }
   end
 
+  def xy
+    xy = [params[:x].to_f.round(2), params[:y].to_f.round(2)]
+    puts xy
+    @bulb.update(xy: xy, bri: 255, transitiontime: 10)
+    render json: { xy: xy }
+  end
+
   def brightness
     @bulb.update(bri: params[:bri].to_i)
     render json: { bri: params[:bri] }
