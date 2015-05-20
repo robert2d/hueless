@@ -1,7 +1,12 @@
 # README
 
 This is a rails application for controlling Hue Lights, it is still a work in progress.
+Feature:
+ * Individual controls for all connected lights
+ * Image palette detection
+ * Webcam live palette detection(useful for watching movies if you point the webcam at the tv screen)
 
+### Exampel
 ![](http://i.imgur.com/Gbjnhm5.png)
 
 ### Install
